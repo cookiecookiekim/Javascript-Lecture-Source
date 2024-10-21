@@ -9,4 +9,4 @@
 console.log(String(10)); // 10 출력
 
 // 2. 2. Objet.prototype.toString 메서드 사용
-console.log((10).toString());
+console.log((10).toString()); // 10츨력 // 문자열로 바꿔줌
