@@ -1,4 +1,4 @@
-// 24-10-21(월) 5교시 연산자 - 논리 연산자(단축 평가)
+// 24-10-21(월) 5~6교시 연산자 - 논리 연산자(단축 평가)
 
 /* 논리 연산자
     || (OR)  , & (AND), !(NOT)
@@ -33,3 +33,18 @@
 
     num % 2 == 0 && console.log('짝수입니다.'); // 앞에가 false이므로 출력 X
     num % 2 == 0 || console.log('홀수입니다.');// 앞에가 false여도 뒤에 truthy이므로 출력.
+    // 이렇게 단축평가를 사용하므로 if는 자주 안 쓴다.
+
+    // 객체를 가리키기를 기대하는 변수가 null 또는 undefined 가 아닌지 확인하고,
+    // 프로퍼티를 참조할 때 단축 평가를 유용하게 사용할 수 있다.
+
+// null point exeption 사전에 방지하기 //
+var obj = null; // null로 초기화
+// var val = obj.value; // . 은 참조 (null로 참조를 한다는 말이 안 된다.)
+//console.log(val); // null point exeption 에러 발생
+
+// obj가 falsy(undefied or null) 값이면 좌항만 실행
+// obj가 falsy이기 때문에 val → null 데이터 타입 반환(값)
+// 만약 obj가 truthy 값이면 식을 결정짓는 obj.value 반환
+var val = obj && obj.value; // 좌항 : null 이라는 값을 꺼내고(false) && 우항 : (볼 것도 없음)
+console.log(val); // null 출력 
