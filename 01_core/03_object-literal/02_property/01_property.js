@@ -10,4 +10,31 @@
     규칙 위반 시, ''는 반드시 사용해야 함. */
 
 var obj = {
+     normal : 'hi' // 작성 규칙 맞으면 '' 생략 가능
+    ,'@ s p a c e @' : 'space value' // 작성규칙 안 맞는 예)특수기호 
+    ,'' : '' // 빈 문자열의 경우 오류 발생 X, 그러나 권장하지 않음
+    , 0 : 1 // 숫자 key는 내부적으로 문자열로 변환
+    , var : 'var' // 예약어를 key로 사용할 수 있다 하지만, 권장하지 않음
+    ,normal : 'new value' // 이미 존재하는 key를 중복 선언하면 나중에 선언한 프로퍼티로 덮어 씀
 };
+
+// 출력 시 순서 : 정수 key는 자동 정렬, 그 외 프로퍼티는 작성 순서로 정렬
+console.log(obj);
+/*{
+    '0': 1,
+    normal: 'new value',
+    '@ s p a c e @': 'space value',
+    '': '',
+    var: 'var'
+  }*/ //출력
+
+  // ==================================================================
+  // 동적으로 프로퍼티 추가하기
+  var key = 'test';
+  // test : test value (test라는 key에 test value라는 프로퍼티 넣을 예정)
+
+  // 대괄호 표기법
+  obj[key] = 'test value';
+
+  console.log(obj);
+  console.table(obj);
