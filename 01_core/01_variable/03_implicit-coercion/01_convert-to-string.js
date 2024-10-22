@@ -21,6 +21,6 @@ console.log(Infinity +'');
 console.log(true +'');
 console.log(null +'');
 console.log(undefined +'');
-console.log({} +''); // [object Object] 출력
+console.log({} +''); // [object Object] 출력 ← (지정된 값이다)
 console.log([] +''); // 공백
 console.log(function(){} +''); // function(){} 출력
