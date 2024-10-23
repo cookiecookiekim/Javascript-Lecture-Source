@@ -15,7 +15,7 @@ panda.eat(); // 푸바오는 대나무를 맛있게 먹어요 출력
 
 // ==================매개 변수 있을 때 =================================
 var panda = {
-    name : '푸바오' //  자바와 동일하게 this는 panda
+    name : '푸바오' // 자바와 동일하게 this는 panda
    ,eat : function(food){ // 자바처럼 자료형 맞출 필요 없이 변수 설정.
        console.log(`${this.name}는 ${food}(을)를 맛있게 먹어요`)
    }

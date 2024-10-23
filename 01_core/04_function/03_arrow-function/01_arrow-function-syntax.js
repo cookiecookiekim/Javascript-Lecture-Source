@@ -3,7 +3,7 @@
 /* ES6 버전에서 도입된 화살표 함수는 function 키워드 대신,
     =>를 사용해서 더 간략하게 함수를 정의하는 것을 의미함. */
 
-var message = function(){
+var message = function (){
     return `hellow world!!!`;
 };
 console.log(message()); // hellow world!!! 잘 출력됨.
