@@ -11,4 +11,4 @@ function Student(name, age) { // 생성자 함수
 }; // 하나의 틀을 만들어 놓기
 
 const student = new Student(`김규남` , 20);
-console.log(student);
+console.log(student); // Student { name: '김규남', age: 20, getInfo: [Function (anonymous)] }
