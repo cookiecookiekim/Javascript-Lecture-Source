@@ -29,17 +29,17 @@
         console.log($drinks); // $drink 내부에 뭐가 담긴지 확인
 
         // forEach 사용을 위한 스프레드 문법 사용
-        [...$drinks].forEach(drink => drink.style.color = `red`); // 변경 확인
+        [...$drinks].forEach(drink => drink.style.color = 'red'); // 변경 확인
 
-        const $coffee = document.getElementsByClassName(`drink coffee`);
-        console.log($drinks); // $drink 내부에 뭐가 담긴지 확인
+        const $coffee = document.getElementsByClassName('drink coffee');
+        console.log($coffee); // $coffee 내부에 뭐가 담긴지 확인
 
         // 하나만 지정하여 변경하기.
-        [...$coffee].forEach(drink => drink.style.color = `blue`); // 변경 확인
+        [...$coffee].forEach(drink => drink.style.color = 'blue'); // 변경 확인
 
-        const $use = document.getElementById(`use`);
-        const $useChild = $use.getElementsByClassName(`drink`); // 부모님 use에서 꺼낸다
-        [...$useChild].forEach(dirink => drink.style.color = 'blue');
+        const $use = document.getElementById('use');
+        const $useChild = $use.getElementsByClassName('drink'); // 부모님 use에서 꺼낸다
+        [...$useChild].forEach(drink => drink.style.color = 'blue');
 
     </script>
 </body>
