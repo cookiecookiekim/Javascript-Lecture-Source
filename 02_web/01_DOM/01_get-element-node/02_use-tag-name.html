@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-24 (목) 4교시 -->
+    <h1>02. 태그의 이름을 이용한 요소 노드 취득</h1>
+    <pre>
+        getElementsByTagName()
+        메서드는 이름에서 나온 듯 해당하는 이름을 가진 모든
+        요소 노드를 가져온다.
+        DOM의 컬렉션 객체인 HTMLCollection 객체를 반환해 준다.
+    </pre>
+    <ul id="food">
+        <li>김치찌개</li>
+        <li>불고기백반</li>
+        <li>이탈리안BLT</li>
+    </ul>
+    <ul id="drink">
+        <li>밀키스</li>
+        <li>하늘보리</li>
+        <li>맥콜</li>
+    </ul>
+    <script>
+        const $lists = document.getElementsByTagName(`li`);
+        console.log($lists)
+    // 배열 형태로 (key , value 형태)출력되고 길이도 확인 가능
+    // 접근법 매우 중요. 프로퍼티 key로 value 접근!!!!!!!
+
+    // HTMLCollection은 - 객체 배열 느낌.
+    // → length 프로퍼티를 가지고 있기 때문에 반복문을 사용할 수 있다.
+        let change = 0;
+        for(let i = 0; i < $lists.length; i++){
+            $lists[i].style.backgroundColor
+                = "rgb(130 , 200 , " + change + ")";
+                change += 50; // rgb : ?? , green,blue
+        }; // 까보는 연습, 흐름 파악하기.
+
+        /* forEach를 사용해서 순회하며 color 프로퍼티 값 변경
+         스프레드 문법 [...값] → 배열로 바꿔준다. */
+        const test = [...$lists];
+        console.log(test);
+
+        /* forEach를 사용하기 위해서는 배열이 필요하기 때문에
+         스프레드 문법을 사용해서 배열로 변경해 줬음. */
+        test.forEach(item => item.style.color = `red`);
+        // item은 변수명이고, item은 li를 가리킨다.
+
+        // 없는 요소 확인하기
+        const $noElement = document.getElementsByTagName(`span`);
+        console.log($noElement); // 비어있는 HTMLCollection 반환
+
+    </script>
+</body>
+</html>

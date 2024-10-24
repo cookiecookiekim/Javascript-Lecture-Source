@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-24 (목) 4교시 -->
+    <h1>03. class 속성을 이용한 요소 노드 취득</h1>
+    <pre>
+        getElementsByClassName()
+        인자로 전달 받은 클래스 어트리 뷰트 값을 갖는
+        모든 요소를 탑색하여 반환한다.
+
+        반환형이 HTMLCollection 타입의 객체이다.
+    </pre>
+
+    <ul id="use">
+        <il class="drink coffee">커피</il>
+        <il class="drink coke">콜라</il>
+        <il class="drink milk">우유</il>
+    </ul>
+    <ul id="noUse">
+        <il class="drink soju">소주</il>
+        <il class="drink beer">맥주</il>
+    </ul>
+    <script>
+        const $drinks = document.getElementsByClassName(`drink`);
+        console.log($drinks); // $drink 내부에 뭐가 담긴지 확인
+
+        // forEach 사용을 위한 스프레드 문법 사용
+        [...$drinks].forEach(drink => drink.style.color = `red`); // 변경 확인
+
+        const $coffee = document.getElementsByClassName(`drink coffee`);
+        console.log($drinks); // $drink 내부에 뭐가 담긴지 확인
+
+        // 하나만 지정하여 변경하기.
+        [...$coffee].forEach(drink => drink.style.color = `blue`); // 변경 확인
+
+        const $use = document.getElementById(`use`);
+        const $useChild = $use.getElementsByClassName(`drink`); // 부모님 use에서 꺼낸다
+        [...$useChild].forEach(dirink => drink.style.color = 'blue');
+
+    </script>
+</body>
+</html>
