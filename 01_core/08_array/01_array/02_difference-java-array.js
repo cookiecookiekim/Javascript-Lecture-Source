@@ -10,7 +10,7 @@
 
 console.log(Object.getOwnPropertyDescriptors([1, 2, 3]));
 // writable : true이면 값을 수정할 수 있고 false면 읽기만 가능
-// enumeralbe : true이면 반복문을 통해 나열 가능, false면 불가능
+// enumerable : true이면 반복문을 통해 나열 가능, false면 불가능
 // configurable : true이면 프로퍼티 삭제 or 수정 가능
 /*(키)      (값)
   '0': { value: 1, writable: true, enumerable: true, configurable: true },

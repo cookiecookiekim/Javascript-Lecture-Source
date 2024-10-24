@@ -21,8 +21,8 @@ function apply(func , value) {
     return func(value);
 };
 
-console.log(apply(increase, 5));
-console.log(apply(decrease, 5));
+console.log(apply(increase(), 5));
+console.log(apply(decrease(), 5));
 
 console.log(apply(function(value){return value * 2;}, 5));
 

@@ -11,7 +11,7 @@ const foodList = [`싸이버거` , `냉면` , `물회` , `짜장면` , `물회`]
 console.log(`indexOf(인자) : ${foodList.indexOf(`물회`)}`);
 // indexOf(인자) : 2 출력 (0번 , 1번 , 2번째 물회가 있으므로)
 console.log(`indexOf(인자,3) : ${foodList.indexOf(`물회`,3)}`);
-// indexOf(인자,3) : 4 출력 (3번째 짜장면을 기준으로 물회는 4번째에 있다)
+// indexOf(인자,3) : 4 출력 (3번째 짜장면을 기준으로 물회는 4번째에 있다) ??
 console.log(`indexOf(존재하지 않는 요소) : ${foodList.indexOf(`삼겹살`)}`);
 // indexOf(존재하지 않는 요소) : -1 출력
 

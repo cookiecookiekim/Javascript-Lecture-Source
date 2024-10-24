@@ -47,5 +47,4 @@ function Student(name, age) { // Student에서 S → 대문자가 포인트
 
 const student4 = new Student(`푸바오` , 4);
 const student5 = new Student(`후이바오` , 1);
-
 console.log(student4.getInfo()); // 푸바오(은)는 4세 입니다. 출력
