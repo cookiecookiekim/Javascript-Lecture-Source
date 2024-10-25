@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-25 (금) 3교시, ★☆ 기존과 다르게 직접 만들어서 붙이기 ★☆ -->
+    <h1>03. 노드의 생성과 추가</h1>
+    <pre>
+        createElement(tagName) : 인수로 전달받은 태그 이름에 해당하는
+                                 요소 노드 생성 후 반환
+        createTextNod(text)    : 인수로 전달받은 텍스트 값으로 텍스트
+                                 텍스트 노드 생성 후 반환
+        appendChild(childNode) : 인수로 전달 받은 노드를 appendChild를
+                                 호출한 노드의 마지막 자식에 추가
+    </pre>
+    <ul id="bread">
+        <li>소보루</li>
+    </ul>
+
+    <script>
+        const $bread = document.getElementById('bread');
+
+        // 요소 노드 생성
+        const li = document.createElement('li'); // li 태그 생성하겠다.
+
+        // 텍스트 노드 생성
+        const text = document.createTextNode('코딱지'); // 문자열 생성하겠다
+
+        // 만든 요소와 텍스트 결합
+        li.appendChild(text);
+        
+        // 결합 시킨 노드를 DOM에 추가
+        $bread.appendChild(li); // 화면에 li로 코딱지 추가
+
+    </script>
+</body>
+</html>

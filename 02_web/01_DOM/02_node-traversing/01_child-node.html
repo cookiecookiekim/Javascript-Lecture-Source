@@ -23,7 +23,7 @@
         <li>childNodes : 자식 노드(요소, 텍스트)를 탐색하여 NodeList 객체 반환</li>
         <!--childNodes가 여러개 이므로 보관할 수 있는 NodeList에 보관-->
         <li>firstChild : 첫 번째 자식 노드(요소, 텍스트) 반환</li>
-        <li>lastChild : 마지막 번쨰 자식 노드(요소, 텍스트) 반환</li>
+        <li>lastChild : 마지막 번째 자식 노드(요소, 텍스트) 반환</li>
     </ol>
     <script>
         const $node = document.getElementById('node'); // 노드라는 아이디 취득
@@ -39,5 +39,12 @@
         <li>firstElementChild : 첫 번째 자식의 요소 노드 반환</li>
         <li>listElementChild : 마지막 번 째 자식의 요소 노드 반환</li>
     </ol>
+    <script>
+        const $element = document.getElementById('element');
+        // 아까와 다르게 text 노드 제외하고 요소 노드만 반환
+        console.log($element.children); // (li , li , li 총 3개)
+        console.log($element.firstElementChild);
+        console.log($element.lastElementChild);
+    </script>
 </body>
 </html>

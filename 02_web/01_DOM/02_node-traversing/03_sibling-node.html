@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-25 (금) 2교시 형제 노드 -->
+    <h1>03. 형제 관계 노드 탐색</h1>
+    <ol id="node">
+        <li>previousSibling : 형제 중 이전 형제 노드(요소, 텍스트) 탐색</li>
+        <li>nextSibling : 제 중 자신의 다음 형제 노드(요소, 텍스트) 탐색</li>
+    </ol>
+    <script>
+        const $node = document.getElementById('node');
+        const {firstChild} = $node;
+        // const firstChild = $node.firstChild;
+        // 변수명과 프로퍼티 키가 같다면 줄여서 사용할 수 있다.
+        // 구조분해 할당 {} 자바스크립트 표현식으로 생략 가능
+        console.log(firstChild); // 빈 공백 추출 <ol id="node">
+
+        const {nextSibling} = firstChild; // firstChild의 다음 형제 nextSibling
+        console.log(nextSibling); // li 태크 추출
+
+        const {previousSibling} = nextSibling;
+        console.log(previousSibling); //이전 형제인 <ol id="node"> 추출
+
+        /* 태그 요소 노드만 취득하고 싶다면 previousElementSibling
+            nextElementSibling을 사용하면 됨.*/
+    </script>
+</body>
+</html>
