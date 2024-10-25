@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!--24-10-25 (금) 5교시 -->
+    <h1>04. 노드 삽입, 이동</h1>
+    <h3>노드 삽입</h3>
+    <pre>
+        appendChild(childNode)
+        - 인자로 전달받은 노드를 appendChild 메서드를 호출한
+            노드의 마지막 자식으로 추가 해준다.
+        insertBefore(newNode, childNode)
+        - 첫 번째 인자로 전달받은 노드를 두 번째 인자로
+            전달 받은 노드 앞에 삽입 해준다.
+        주의점으로는 두 번째 인자는 반드시 insertBefore를
+            호출한 노드의 자식 노드여야 한다.
+    </pre>
+    <ur id="drink">
+        <li>커피</li>
+    </ur>
+    <script>
+        const $drink = document.getElementById('drink'); 
+
+        const $li1 = document.createElement('li'); // li 태그 생성
+
+        $li1.textContent = '맥콜';
+        // 가장 마지막 자식 노드로 추가되는 특징을 가진다.
+        $drink.appendChild($li1); // 화면에 맥콜 추가
+
+
+        const $li2 = document.createElement('li');
+
+        $li2.textContent = '밀키스';
+
+        // 밀키스라느 li 태그를 맥콜 앞에 삽입
+        // (append.Child로 불가, 가장 마지막에 추가되기 때문)
+        /* 1번째 인자 - 삽입하려는 대상 
+           2번째 인자 - 기준 위치 */
+        $drink.insertBefore($li2, $drink.lastElementChild); // 화면에 맥콜 앞에 삽입
+
+
+        const $li3 = document.createElement('li');
+
+        $li3.textContent = '사이다';
+
+        // insertBefore의 특징 : 두 번째 인자가 null이면
+        // append.Child와 동일하게 동작한다. (가장 마지막에 붙는다.)
+        $drink.insertBefore($li3 , null); 
+    </script>
+    <h3>노드 이동</h3>
+    <pre>
+        DOM에 이미 존재하는 노드를 appendChild, insertBefore
+        메서드를 사용해서 DOM에 추가하게 되면 
+        현재 위치에서 노드를 제거하고 새로운 위치에 노드를
+        추가하는 노드 이동이 발생됨.
+    </pre>
+    <ul id="food">
+        <li>치킨</li>
+        <li>피자</li>
+    </ul>
+    <script>
+        const $food = document.getElementById('food');
+
+        // 치킨 노드와 피자 노드 취득
+        // const $chicken = $food.firstElementChild; // 첫번째 자식이다.
+        // const $pizza = $food.lastElementChild; // 마지막 자식이다.
+        const test  = $food.children;
+        console.log(test);
+
+        const [$chicken , $pizza] = $food.children;
+
+        $drink.appendChild($chicken); // 화면에서 사이다 밑으로 이동
+        $food.appendChild($chicken); // 다시 피자 밑으로 이동
+    </script>
+</body>
+</html>

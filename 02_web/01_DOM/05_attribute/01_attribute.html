@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01. 어트리뷰트(속성)</h1>
+    <pre>
+        Element(태그)들은 attribute라고 하는 프로퍼티가 존재한다.
+    </pre>
+    <label for="username">유저명 : </label>
+    <input type="text" id="username" value="user01">
+    <script>
+        const {attributes} = document.getElementById('username');
+        //태그를 가져올 게 아니라 속성을 가져올 거기 떄문에 $ 안 씀
+        // attributes.attributes; 변수명과 사용 동일
+        
+        console.log(attributes); // console 확인
+
+        console.log(attributes.value.value); 
+        // value라는 key값에 value라는 key로 user01 접근
+        // console로 확인해 가며 이해
+
+        console.log(attributes.id.value); // username에 접근
+    </script>
+    <pre>
+        Element의 getAttribute/setAttribute 메서드를 사용하면 
+        attributes 객체를 사용하지 않고 접근할 수 있다.
+    </pre>
+    <script>
+        const $input = document.getElementById('username');
+        // 인자로 취득하고 싶은 속성을 문자열로 정의한다.
+        const inputValue = $input.getAttribute('value');
+        console.log(inputValue);
+        // 위에 것 보다 더 간단하게 value의 속성인 user01에 접근
+
+        // value 속성 값 변경
+        // 첫 번째 인자는 변경하고 싶은 속성명
+        // 두 번재 인자는 변경할 값
+        $input.setAttribute('value', '푸바오');
+        // 화면상에 input 푸바오로 변경
+    </script>
+    
+    <pre>Element가 제공하는
+        hasAttribute(속성명) : 인자로 전달한 어트리뷰트 존재 여부
+        removeAttribute(속성명) : 인자로 전달한 어트리뷰트 삭제
+    </pre>
+    <label for="nickname">닉네임 : </label>
+    <input type="text" id="nickname" value="JSMaster">
+    <script>
+        const $nickname = document.getElementById('nickname');
+        // name이라고 하는 속성(attribute) 가지고 있는지 확인
+        console.log($nickname.hasAttribute('name'));
+         // 화면 : 네임이라는 속성이 존재하는지 확인 (false)
+
+         if($nickname.hasAttribute('value')) { // 가지고 있으니, 삭제해보기
+            $nickname.removeAttribute('value'); // 화면에 JSMaster 삭제.          
+         }
+    </script>
+</body>
+</html>
