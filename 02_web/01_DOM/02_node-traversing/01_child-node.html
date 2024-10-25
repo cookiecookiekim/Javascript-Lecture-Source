@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-25 (금) 1교시 자식 노드 -->
+    <h1>01. 자식 노드 탐색</h1>
+    <h3>노드 탐색</h3>
+    <pre>
+        요소 노드를 취득한 후 취득한 요소를 기점으로
+        부모 or 형제 or 자식을 탐색해야 하는 경우가 존재할 수 있음.
+    </pre>
+
+    <h3>공백 텍스트 노드</h3>
+    <pre>
+        HTML 요소 사이의 스페이스, 탭, 줄바꿈 등의 공백 문자는
+        텍스트 노드를 생성한다.
+    </pre>
+    <h3>자식 노드 탐색하기</h3>
+    <ol id="node">
+        <li>childNodes : 자식 노드(요소, 텍스트)를 탐색하여 NodeList 객체 반환</li>
+        <!--childNodes가 여러개 이므로 보관할 수 있는 NodeList에 보관-->
+        <li>firstChild : 첫 번째 자식 노드(요소, 텍스트) 반환</li>
+        <li>lastChild : 마지막 번쨰 자식 노드(요소, 텍스트) 반환</li>
+    </ol>
+    <script>
+        const $node = document.getElementById('node'); // 노드라는 아이디 취득
+        console.log($node); // 일단 $node에 뭐가 들었는지 출력
+// childNodes에 8개의 값이 들어있는 것 확인 (comment는 주석)
+// → (공백, li, text, comment,test, li, test, li, text)
+        console.log($node.childNodes);
+        console.log($node.firstChild);
+        console.log($node.lastChild);
+    </script>
+    <ol id="element">
+        <li>children : 자식 노드 중 요소(태그)만 탐색하여 HTMLCollection 객체 반환</li>
+        <li>firstElementChild : 첫 번째 자식의 요소 노드 반환</li>
+        <li>listElementChild : 마지막 번 째 자식의 요소 노드 반환</li>
+    </ol>
+</body>
+</html>

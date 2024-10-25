@@ -22,6 +22,7 @@ console.log(`정렬 후 numbers 배열 : ${numbers}`); // 첫번째 자리수 �
 // 숫자 오름차순 정렬
 // compare(a,b)의 a와 b인자는 위에 정의한 정렬의 첫번째, 두번째 값이고
 // 비교가 종료 되면 두번째, 세번째 순으로 비교함.
+// sort에 인자로 보내줄 때 아래의 함수는 법칙이라고 생각 (return 1 , 0 , -1 의 의미)
 function compare (a,b) { // 자동 형변환 (동적)
     if (a > b) return 1; // true
     if (a == b) return 0;
@@ -99,7 +100,7 @@ numbers.reduce((pre, currV, currI, array) => { // 순서가 중요하지, 매개
  // ★ 어떤 식으로 동작하는지 분석해보기.★
 const sum = numbers.reduce((pre, currV) => {
     return pre + currV; // return한 결과는 다음 콜백의 첫번째 인자로 전달
-});
+}); // pre의 첫번째는 undefined이고, 그 이후부터 콜백 반환값 + 요소값, 끝까지 더해줌
 console.log(`sum : ${sum}`);
 
 
@@ -130,9 +131,9 @@ const student = [
     ,{name : `김남규` ,score : 95}
     ,{name : `김규남` ,score : 85}
 ];
-result = student.find(item => item.name === `김규남`);
+result33 = student.find(item => item.name === `김규남`);
                 // ==도 되는데 type 일치를 위해 ===해야 안전한 코드
-console.log(result);
+console.log(result33);
 
 //student 배열에서 90점 넘는 학생만 추출하기.
 result = student.find(item => item.score >= 90);
