@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {background: rebeccapurple;}
+        li {background: burlywood;}
+    </style>
+</head>
+<body> <!-- 24-10-28 (월) 4교시 event propagation(전파) -->
+    <h1>01. 이벤트의 전파</h1>
+    <pre>
+        생성된 이벤트 객체는 이벤트를 발생시킨 DOM 요소인
+        이벤트 target을 중심으로 DOM 트리를 통해 전파.
+        1. 캡처링 단계(capturing phase) : 상위요소에서 하위 요소로 전파
+        2. 타깃 단계 (target phase) : 이벤트가 이벤트 타겟에 도달
+        3. 버블링 단계(bubbling phase) : 이벤트가 하위 요소에서 상위 요소로 전파
+    </pre>
+
+    <ul id="drink">
+        <li>맥콜</li>
+        <li>사이다</li>
+        <li>제로콜라</li>
+    </ul>
+    <script>
+        const $drink = document.getElementById('drink');
+        // 이벤트 객체(e)는 항상 숨어 있다는 사실 알고 있기.
+        $drink.addEventListener('click', e => {
+            // ul 영역 클릭 시
+            // 2 : 타겟 단계, 타겟과 현재 타겟도 ul 출력
+
+            // li 영역 클릭시
+            // 3: 버블링, 타겟 li, 현재 타겟 ul 출력
+            console.log(e.eventPhase);
+            console.log(e.target);
+            console.log(e.currentTarget);
+        })
+    </script>
+</body>
+</html>
