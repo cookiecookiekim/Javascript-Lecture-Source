@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .circle{
+            border-radius: 50%; 
+        }
+        .lightgray {
+            background: lightgray;
+        }
+        .yellow {
+            background: yellow;
+        }
+    </style>
+</head> <!-- border-radius : 깎이 -->
+<body> <!-- 24-10-28 (월) 2교시  -->
+    <h1>02. className과 classList</h1>
+    <pre>
+        우리가 작성하는 class 속성은 DOM 프로퍼티에서는
+        className과 classList 형식으로 지정되어 있다.
+    </pre>
+    <div class="area"></div>
+    <!-- 돔 요소 취득 후, 찍어보면 class가 아니라 className으로 찍혀있다. -->
+    <script>
+        const $area = document.querySelector('.area');
+        console.log($area); // 까보면 classList와 className에 저장돼있는 것 확인
+
+        // 클래스명을 덮어쓰게되면 .area가 제거됨.
+        $area.className = 'circle'; // 위에 작성해 놓은 circle 덧입히기.
+    </script>
+</body>
+</html>
