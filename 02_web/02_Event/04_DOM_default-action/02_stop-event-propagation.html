@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-28 (월) 5교시 예방 , 이벤트 전파 중지 -->
+    <h1>02. 이벤트 전파 방지</h1>    
+    <ul id="bao">
+        <li>푸바오</li>
+        <li>러바오</li>
+        <li>아이바오</li>
+    </ul>
+    <script>
+        const $bao = document.getElementById('bao');
+        $bao.addEventListener('click' , e => { // li에 이벤트를 넣을 예정
+            if(e.target.matches('li')){ // e.target이 li라면
+                e.target.style.color = 'red'; // 클릭 시 컬러를 레드로 바꾸겠다.
+            }
+        })
+        /* 첫 번째 li태그만 위에서 만들어둔 이벤트가 위임되는 것을
+        stop하게 되어 red로 변경 되지 않는다. */
+        document.querySelector('li')
+                .addEventListener('click' , e => {
+                    e.stopPropagation(); // 푸바오 제외, 클릭 시 red 로 바뀜
+                })
+    </script>
+</body>
+</html>
