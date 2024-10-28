@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            background: lightcoral;
+            border: 1px soild black;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body> <!-- 24-10-28 (월) 6교시 (예시) 마우스와 관련된 이벤트 -->
+    <h1>01. 마우스 관련 이벤트</h1>
+    <h3>마우스 이벤트 대표적 예시</h3>
+    <ul>
+        <li>mousedown/up</li>
+        <li>mouseover/out</li> <!-- 꽤 많이 사용, 나머지는 참고용-->
+        <li>mousemove</li>
+        <li>click</li> <!-- 앞도적으로 많이 사용, 나머지는 참고용-->
+        <li>contextmenu</li>
+    </ul>
+    <hr>
+    <button>클릭</button>
+    <div class="area"></div>
+    <script>
+        const $btn = document.querySelector('button');
+        const $div = document.querySelector('.area');
+
+        /*   e 객체의 프로퍼티
+             0 : 왼쪽 클릭
+             1 : 휠 클릭
+             2 : 오른쪽 클릭 */
+
+        // 04_DOM-modification 폴더의 insertAdjacentHTML 파일 참고
+        // → 첫번째 인자 : (위치(포지션) , 넣을 문자열)
+        
+        // $btn.onmousedown = e => { // 프로퍼티 방식으로
+        //      // 'beforeend' , 삽입할 문자열, ... )
+        //     $div.insertAdjacentHTML('beforeend', 'mousedown button=' + e.button + "<br>");
+        // } // 클릭 할 때마다 mousedown button=숫자 출력
+        
+        // $btn.onmouseup = e => {
+        //     $div.insertAdjacentHTML('beforeend', 'mouseup button=' + e.button + "<br>")
+        // }// 클릭하고 땔 때마다 mousedown button=숫자 출력
+
+        $btn.onmouseover = e => { // ★☆
+            $div.insertAdjacentHTML('beforeend', 'mouseover button=' + e.button + "<br>")
+        }
+
+        // $btn.onmouseout = e => {
+        //     $div.insertAdjacentHTML('beforeend', 'mouseout button=' + e.button + "<br>")
+        // }
+
+        $btn.onclick = e => { // ★☆
+            $div.insertAdjacentHTML('beforeend', 'onmouseclick=' + e.button + "<br>")
+        }
+
+        // $btn.oncontextmenu = e => {
+        //     $div.insertAdjacentHTML('beforeend', 'oncontextmenu=' + e.button + "<br>")
+        // }
+
+</script>
+</body>
+</html>
