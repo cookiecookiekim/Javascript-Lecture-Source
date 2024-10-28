@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  <!-- 24-10-28 (월) 2교시 어트리뷰트 방식으로 이벤트 등록 -->
+    <h1>01. 이벤트 핸들러 어트리뷰트 방식</h1>
+    <h3>이벤트 핸들러 등록</h3>
+    <pre> <!-- 브라우저 상 모든 행위를 이벤트라고 부름. (마우스 클릭 등)-->
+        이벤트 핸들러
+        - 이벤트가 발생했을 때 브라우저에 호출을 위임한 함수.
+        이벤트가 발생했을 때 브라우저에게 이벤트 호출을 위임하는 것을
+        이벤트 핸들러 등록이라고 하며, 이벤트 핸들러 등록하는 방법은 3가지 존재.
+    </pre>
+    <h3>이벤트 핸들러 어트리뷰트 방식</h3>
+    <pre>
+        HTML 이벤트 핸들러 어트리뷰트(on 접두사 + 이벤트 타입) 값으로
+        함수 호출문을 할당하여 이벤트 핸들러를 등록하는 방식.
+        주의점은 함수 참조가 아닌, 함수 호출문을 할당하는 것.
+    </pre>
+    <!-- on은 모두 이벤트, on이라는 프로퍼티 선택하기. -->
+    <button onclick="alert('이걸 클릭하다니~'); console.log('hi')">클릭해 보세요.</button>
+    <!-- → 클릭 시, '이걸 클릭하다니~' arert 문구 출력 -->
+
+    <button onmouseover="hello('김규남');">마우스를 올려보세요.</button>
+    <!-- hello는 우리가 만든 함수이므로 함수 만들어 줘야함 (아래)-->
+     <script>
+        function hello(name){
+            alert(`${name}씨, 마우스 올리는 행위 검거 완료.`);
+        } // 마우스를 버튼에 올리니, alert 출력
+     </script>
+     <pre>
+        어트리뷰트 방식으로 이벤트 핸들러 등록 시, 
+        HTML/CSS 요소 뿐 아니라 JavaScript 언어도 추가하게 된다.
+        따라서 JavaScript 언어를 모르는 기획자나 퍼블리셔는 혼란스러울 수 있다.
+
+        HTML은 정적인 요소, JavaScript는 동적으로 바꿀 수 있는 요소.
+        그래서 HTML와 JavaScript는 따로 분리해 두는 것을 추천하지만,
+        (ex) .js / .html 형식으로 분리하는 걸 뜻함.)
+        나중에 학습할 SPA 리액트에서는 이벤트 핸들러를 어트리뷰트 방식으로
+        처리를 해두기 때문에 알아두는 것이 좋다!
+     </pre>
+</body>
+</html>

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <!-- id인 경우, idList로 하는 게 아님, 보통 스타일은 classList로 먹인다.
+            id는 보통 식별자로서 사용(classList는 f12에 프로퍼티로써 존재) -->
+    <style> 
         .area{
             width: 100px;
             height: 100px;
@@ -34,7 +36,24 @@
         console.log($area); // 까보면 classList와 className에 저장돼있는 것 확인
 
         // 클래스명을 덮어쓰게되면 .area가 제거됨.
-        $area.className = 'circle'; // 위에 작성해 놓은 circle 덧입히기.
+        // $area.className = 'circle'; // 위에 작성해 놓은 .area 를 circle로 덧입히기.
+
+         // .area의 border는 그대로 유지하고 싶을 때
+        console.log($area.classList); // → 클래스명을 덮어쓰는 것이 아닌 추가하기
+        $area.classList.add('circle'); // border 유지한 채, 원 생성
+        $area.classList.add('lightgray'); // lightgray 추가하여 색 변경
+
+        // 꺼내오기 : item(index) 인수로 전달한 인덱스에 해당하는 클래스 반환
+        console.log($area.classList.item(0)); // 인덱스 번호(0)로 접근
+
+        // 바꿔치기 replace(old,new)
+        $area.classList.replace('lightgray', 'yellow'); // 회색이 노랑으로 변경
+
+        // toggle(className) : 일치하는 값 있으면 제거
+        // → 전달한 문자열이 존재하면 삭제하고, 존재하지 않으면 추가한다.
+        $area.classList.toggle('yellow'); // 노란색 삭제
+        $area.classList.toggle('yellow'); // 다시 노랑 생성
+
     </script>
 </body>
 </html>
