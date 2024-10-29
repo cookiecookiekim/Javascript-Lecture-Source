@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> <!-- 24-10-29 (화) 3교시 interval (나중을 위한 빌드업) -->
+    <h1>02. interval</h1>
+    <pre>
+    setInterval(fun|code [, delay , param1, param2, ...])
+    전달받은 시간으로 반복적으로 동작하는 타이머 함수
+    이후 타이머가 만료될 때까지 계속된다.
+    </pre>
+    <script>
+        let count = 1;
+        const timerId = setInterval(() => {
+            console.log(count); // 동작 시 1초마다 출력
+            if(count++ === 5){ // 5초가 되면 종료되게 지정.
+                clearInterval(timerId);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
