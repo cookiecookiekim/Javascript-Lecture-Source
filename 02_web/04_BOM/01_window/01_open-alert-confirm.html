@@ -67,7 +67,23 @@
             } else {
                 console.log('다음 시간까지만 할게요.')
             }
-
+    </script>
+    <h3>prompt(명령 날리다)</h3>
+    <pre>
+        window.prompt(message, default)
+        - message : 사용자가 어떤 값을 입력해야 하는지 안내문구
+        - default : 텍스트 입력 필드에 기본 값(문자열)
+        → 반환값은 사용자 입력 값이며,
+          취소를 누르거나 ESC키를 누르게 되면 null 값 리턴.
+    </pre>
+    <script>
+        const likeNumber = window.prompt('좋아하는 숫자 입력하기',7);
+        console.log(likeNumber); // 7출력
+        if(likeNumber){ // 조건이 아닌데도 if에 들어가는 이유 : truthy
+            alert(`당신이 입력한 숫자는 ${likeNumber} 입니다.`);
+        } else {
+            alert(`값은 반드시 입력돼야 합니다.`); // 7지우면 해당 문구 출력
+        }
     </script>
 </body>
 </html>
