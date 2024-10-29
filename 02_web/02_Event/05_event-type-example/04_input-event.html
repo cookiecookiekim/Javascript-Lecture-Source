@@ -8,13 +8,12 @@
         .lightgray {
             background : lightgray;
         }
-        .focus { /* 하이라이트 옵션 */
+        .focused { /* 하이라이트 옵션 */
             outline : 3px dashed red;
         }
     </style>
 </head>
-<body> <!-- 24-10-29 (화) 1교시 input -->
-    <!-- textarea에 입력 글자 수에 따라 30/5000자 식으로 동적으로 만들기 -->
+<body> <!-- 24-10-29 (화) 1~2교시 ☆★☆★ -->
     <h1>04. 사용자의 입력 관련 이벤트</h1>
     <form name="join">
         <label for="username">이름 : </label>
@@ -103,9 +102,80 @@
         // introduce가 가지고 있는 value 추출해보기
         console.log($introduce.value);
         $introduce.value = '안녕하세여'; // textarea에 변경됨
+    </script>
+    <!-- 2교시, 이벤트 입혀보기 -->
+    <h3>focus, blur 이벤트</h3>
+    <pre>
+    - focus : 사용자가 폼 요소를 클릭하거나 tab 키를 눌러,
+              요소로 이동했을 때 발생하는 이벤트.
+    - blur : 사용자가 다른 곳을 선택하거나 tab 키를 눌러,
+              다른 폼 요소로 이동했을 때 발생하는 이벤트.
+    </pre>
+    <script>
+        /* 이벤트가 일어나는 주체에 classList라는 프로퍼티에 접근하여
+        toggle이라는 메서드로 lightgray 클래스 속성 추가 하겠다 */
+        $username.onfocus = e => {
+            e.target.classList.toggle('lightgray');
+        }
 
+        $username.onblur = e => {
+            e.target.classList.toggle('lightgray');
+        } // 이름 input 눌렀을 때, lightgray 동작 확인
+    </script>
+    
+    <h3>focusin, focusout 이벤트</h3>
+    <pre>
+    focus 이벤트는 해당 입력 필드에만 동작하고 버블링 되지 않는다.
+    버블링이 필요하다면 focusin , focusout 이벤트를 사용한다.
 
+    버블링이란? 상위 이벤트 적용 시 하위 모두 이벤트 적용
+    </pre>
+    <script>
+        // $form.addEventListener('focus', (e) => {
+        //     e.target.classList.add('focused');
+        // });
+        // $form.addEventListener('blur', (e) => {
+        //     e.target.classList.remove('focused');
+        // }); 
+        // focus는 버블링이 일어나지 않는다. 
 
+        $form.addEventListener('focusin', (e) => {
+            e.target.classList.add('focused'); // css style에 맞춰줌.
+        }); 
+        
+        $form.addEventListener('focusout', (e) => {
+            e.target.classList.remove('focused');
+        }); // focusin, focusout을 하니 버블링 확인
+    </script>
+    <h3>change 이벤트</h3>
+    <pre>
+        change 이벤트 요소 변경이 끝나면 발생하는 이벤트.
+        select/checkbox/radio 같은 경우 선택 값이
+        변경된 직후 발생하게 되며,
+        텍스트 입력 요소는 변경 후 포커스를 잃었을 때 발생하게 된다.
+    </pre>
+    <script> // change는 벗어날 때 이벤트 발생
+        $age.addEventListener('change', () => {
+            alert('age 변경됨.') // 나이 변경할 때 마다 alert 출력
+        })
+        $introduce.addEventListener('change', () => {
+            alert('text 박스 값 변경.') // 입력 이후, focus 떼면 출력
+        })
+    </script>
+    
+    <h3>input 이벤트</h3>
+    <pre>
+    change와 달리, input 이벤트는 값을 변경할 때 발생.
+    </pre>
+    <script>
+        $introduce.addEventListener('input' , e => {
+    // console.log(e.target.value); // 입력할때마다 콘솔창에 업데이트
+            let len = e.target.value.trim().length;
+            console.log(len); // 입력에 따른 총 글자 수 추출
+
+            // span 태그 추출
+            $form.querySelector('span').textContent = len;
+        })  // len을 추출한 태그에 넣어주니, 글자수 동적으로 변경 완료
     </script>
 </body>
 </html>
