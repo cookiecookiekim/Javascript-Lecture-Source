@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lightgray {
+            background : lightgray;
+        }
+        .focus { /* 하이라이트 옵션 */
+            outline : 3px dashed red;
+        }
+    </style>
+</head>
+<body> <!-- 24-10-29 (화) 1교시 input -->
+    <!-- textarea에 입력 글자 수에 따라 30/5000자 식으로 동적으로 만들기 -->
+    <h1>04. 사용자의 입력 관련 이벤트</h1>
+    <form name="join">
+        <label for="username">이름 : </label>
+        <input type="text" name="name" id="username" value="raccoon">
+        <br>
+        <label>성별 : </label>
+        <input type="radio" name="gender" id="male" value="m" checked>
+        <label for="male">남성</label>
+        <input type="radio" name="gender" id="female" value="f">
+        <label for="female">여성</label>
+        <br>
+        <label>나이</label>
+        <select name="age" id="age">
+            <option value="10">10대 이하</option>
+            <option value="20">20대</option>
+            <option value="30">30대</option>
+            <option value="40">40대</option>
+            <option value="50">50대</option>
+            <option value="60">60대</option>
+        </select>
+        <br>
+        <label>자기소개 문구</label>
+        <br>
+        <textarea name="introduce" id="introduce" rows="5" cols="30">
+            저를 소개합니다.
+        </textarea>
+        <span>0</span>/5000자
+        <br>
+        <input type="submit" value="제출">
+    </form>
+    <hr>
+    <h3>폼 요소 값 다루기</h3>
+    <pre> <!-- 많이 사용 할 거니까 외워두기 -->
+    input, textarea 사용 시,
+    - input.value 또는 input.checked 메서드에 접근 가능
+
+    select 사용 시,
+    select.options, select.value, select.selectedInde 메서드에 접근 가능
+    - select.options : option 하위 요소들을 담고 있는 컬렉션
+    - select.value : 현재 선택된 option 값
+    - select.selectedIndex : 현재 선택된 option의 index 번호
+    </pre>
+    <script>
+        // 폼 태그에 입력할 양식을 모아 두었으니, 폼 태그 추출해보기
+        // document에 forms라는 key
+        console.log(document.forms) // name인 join이 들어가 있음.
+
+        console.log(document.forms.join)
+        // name으로 접근 / join(프로퍼티) 접근
+
+        console.log(document.forms[0])
+        // index값으로 접근 / 배열에 접근 : index 번호
+
+        const $form = document.forms.join; // $form 변수에 저장
+
+        // 요소 취득
+        const $username = $form.username;
+        // username의 value라는 프로퍼티 접근
+        console.log(`$username.value : ${$username.value}`); // raccoon 접근
+
+        $username.value = 'koala'; // input내에 text 변경 
+
+        // gender 접근해보기
+        const $gender = $form.gender; // gender라는 name에 접근
+        console.log($gender) // radio로 2가지를 묶어놨기 때문에, 배열임
+        console.log(`$gender[1].checked : ${$gender[1].checked}`)
+        // 배열이므로 index로 접근, 1번째는 female이므로 false 출력
+        // 0번째는 male이므로(체크 돼있으므로) true 출력
+
+        // false인 femail을 true (check) 로 바꾸기
+        $gender[1].checked = true;
+
+        const $age = $form.age;
+        console.log($age); // 이전에 만들어 놓은 옵션 6가지 확인
+        console.log($age.options); // age의 options에 접근
+        // selected 라는 프로퍼티가 중요!
+        // 현재 0번째 인덱스인 10대 이하가. selected: true
+        // true란 check 돼있단 말
+
+        // 2번이라는 프로퍼티에 접근해보기
+        // 2번은 false이므로 true(check)로 변경하기
+        $age.options[2].selected = true;
+
+        
+        const $introduce = $form.introduce;
+        // introduce가 가지고 있는 value 추출해보기
+        console.log($introduce.value);
+        $introduce.value = '안녕하세여'; // textarea에 변경됨
+
+
+
+    </script>
+</body>
+</html>
