@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">새로운 창 열기</button>
+    <button id="btn2">새로운 창 열기</button>
+
+    <script>
+        const $test = document.getElementById('btn1')
+        $test.onclick = () => 
+            window.open("https://www.naver.com"
+            ,'네이버'
+            ,'width=100, height=100');
+        
+        const asd = document.getElementById('btn2')
+        asd.onclick = function(){
+            window.open('https://www.nexon.com'
+                ,'넥슨'
+            )
+        }
+
+        window.alert('얼러트')
+
+        window.confrim
+    </script>
+</body>
+</html>

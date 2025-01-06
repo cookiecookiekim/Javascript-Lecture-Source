@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lightgray {
+            background : lightgray;
+        }
+        .focusy { /* 하이라이트 옵션 */
+            outline : 3px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <form name="join">
+        <label for="username">이름 : </label>
+        <input type="text" id="username" name="name" value="lion">
+        <br>
+        <label>성별 : </label>
+        <input type="radio" name="gender" id="male" value="m" checked>
+        <label for="male" checked>남성</label>
+        <input type="radio" name="gender" id="female" value="f">
+        <label for="female">여성</label>
+        <br>
+        <label>나이</label>
+        <select name="age" id="age">
+            <option value="10">10대</option>
+            <option value="20">20대</option>
+            <option value="30">30대</option>
+            <option value="40">40대</option>
+            <option value="50">50대</option>
+            <option value="60">60대</option>
+        </select>
+        <br>
+        <label>자기소개 문구</label>
+        <br>
+        <textarea name="introduce" id="introduce" rows="5" cols="30">
+        소개란
+        </textarea>
+        <span>0</span>/5000자
+        <br>
+        <input type="submit" value="제출">
+    </form>
+
+    <script>
+        console.log(document)
+        console.log(document.forms.join)
+
+        const $join = document.forms.join; // join 요소 취득
+        const $username = $join.username
+        console.log($username)
+        $username.value = 'horange';
+
+        const $gender = $join.gender // gender 접근
+        console.log($gender)
+        console.log(`${$gender[0].checked}`)
+        console.log(`${$gender[1].checked}`)
+        $gender[1].checked = true;
+
+        const $age = $join.age // age 접근
+        console.log($age)
+        console.log($age.options[0])
+        console.log($age.options[1])
+        $age.options[1].selected = true;
+
+        const $introduce = $join.introduce // introduce 접근
+        console.log($introduce)
+        $introduce.textContent = '안녕하세요';
+    </script>
+
+    <script>
+        console.log($username)
+        $username.onfocus = function(e) {
+            e.target.classList.toggle('lightgray')
+        }
+        $username.onblur = function(e){
+            e.target.classList.toggle('lightgray')
+        }
+
+        $join.addEventListener('focusin', function(e){
+            e.target.classList.add('focusy')
+        });
+
+        $join.addEventListener('focusout', function(e){
+            e.target.classList.add('focusy')
+        })
+
+        $age.addEventListener('change', function(){
+            alert('age 변경');
+        });
+
+        $introduce.addEventListener('change', function(){
+            alert('textbox 변경')
+        })
+
+        $introduce.addEventListener('input', function(e){
+            // console.log(e.target.value);
+            let asd = e.target.value.trim().length
+        $join.querySelector('span').textContent = asd
+
+        })
+
+
+    </script>
+
+</body>
+</html>
